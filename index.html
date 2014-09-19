@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>#AcroyogaTraining</title>
+<script type="text/javascript" src="instafeed.js"></script>
+
+<script type="text/javascript">
+    var feed = new Instafeed({
+        get: 'tagged',
+        tagName: 'acroyogatraining',
+        clientId: '4c0caa35855143e788ca790012daaa3b',
+        limit: 11,
+        resolution: 'standard_resolution',
+        template: '<p><a href="{{link}}"><img src="{{image}}" /></a><br>{{caption}}</p>',
+        filter: function(image) {
+          return image.type == 'video';
+        }
+    });
+    feed.run();
+</script>
+</head>
+<body>
+<center>
+  <h1>#AcroyogaTraining Instagram Videos</h1>
+  <div id="instafeed"></div>
+</center>
+</body>
+</html>
