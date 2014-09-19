@@ -1,6 +1,7 @@
 <html>
 <head>
 <title>#AcroyogaTraining</title>
+<link rel="stylesheet" href="style.css">
 <script type="text/javascript" src="instafeed.js"></script>
 
 <script type="text/javascript">
@@ -8,9 +9,9 @@
         get: 'tagged',
         tagName: 'acroyogatraining',
         clientId: '4c0caa35855143e788ca790012daaa3b',
-        limit: 11,
+        limit: 60,
         resolution: 'standard_resolution',
-        template: '<p><a href="{{link}}"><img src="{{image}}" /></a><br>{{caption}}</p>',
+        template: '<div id="header"><iframe src="{{link}}/embed/" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div><div id="footer">{{caption}}</div>',
         filter: function(image) {
           return image.type == 'video';
         }
@@ -19,9 +20,11 @@
 </script>
 </head>
 <body>
-<center>
-  <h1>#AcroyogaTraining Instagram Videos</h1>
+<div id="container">
+  <div id="header"><h1>#AcroyogaTraining Instagram Videos</h1></div>
   <div id="instafeed"></div>
-</center>
+  <div id="footer"><h5>Created by Diana Lam and Greg Clarke of <a href='http://SmileyOm.com'>Smiley Om</a>.</h5></div>
+</div>
 </body>
 </html>
+

@@ -1,0 +1,22 @@
+#container {
+    width:612px;
+    margin:0px auto;
+}
+
+#sidebar {
+    float:left;
+    width:150px;
+}
+
+#content {
+    float:left;
+    width:462px;
+}
+
+#footer {
+    clear:both;
+}
+
+* {
+    font-family: Helvetica, sans-serif;
+  }
