@@ -17,7 +17,7 @@
         resolution: 'standard_resolution',
         template: '<div id="header"><iframe src="{{link}}/embed/" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div><div id="footer">{{caption}}</div>',
         filter: function(image) {
-          return (image.type == 'video') && !(image.id in excluded_hash);
+          return ((image.type == 'video') && !(image.id in excluded_hash));
         }
       });
       feed.run();
