@@ -13,7 +13,7 @@
         clientId: '4c0caa35855143e788ca790012daaa3b',
         limit: 60,
         resolution: 'standard_resolution',
-        template: '<div id="header"><iframe src="{{link}}/embed/" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div><div id="footer">{{caption}}<b>{{image.type}}</b></div>',
+        template: '<div id="header"><iframe src="{{link}}/embed/" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div><div id="footer">{{caption}}</div>',
         filter: function(image) {
           return ((image.type == 'video') && !(excluded_posts.indexOf(image.id)));
         }
