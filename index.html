@@ -7,6 +7,13 @@
     <script type="text/javascript">
       var excluded_posts = ["892610382732275895_208691355"];
       
+      function is_in_array(s,your_array) {
+        for (var i = 0; i < your_array.length; i++) {
+          if (your_array[i].toLowerCase() === s.toLowerCase()) return true;
+        }
+        return false;
+      }
+      
       var feed = new Instafeed({
         get: 'tagged',
         tagName: 'acroyogatraining',
@@ -15,7 +22,7 @@
         resolution: 'standard_resolution',
         template: '<div id="header"><iframe src="{{link}}/embed/" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div><div id="footer">{{caption}}</div>',
         filter: function(image) {
-          return ((image.type == 'video') && !(excluded_posts.indexOf(image.id)));
+          return ((image.type == 'video') && !is_in_array(image.id,excluded_posts));
         }
       });
       feed.run();
