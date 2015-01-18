@@ -5,6 +5,11 @@
     <script type="text/javascript" src="instafeed.js"></script>
 
     <script type="text/javascript">
+      var excluded_posts = ["xjMGnxlTC3"];
+      var excluded_hash = {};
+      for(var i=0; i<excluded_posts.length;i++){excluded_hash[excluded_posts[i]]="";} /* Transform the array in a dict */
+      ("something" in b)
+      
       var feed = new Instafeed({
         get: 'tagged',
         tagName: 'acroyogatraining',
@@ -13,7 +18,7 @@
         resolution: 'standard_resolution',
         template: '<div id="header"><iframe src="{{link}}/embed/" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div><div id="footer">{{caption}}</div>',
         filter: function(image) {
-          return image.type == 'video' && !image.id.match("Foo|Bar|xjMGnxlTC3");
+          return (image.type == 'video') && !(image.id in excluded_hash);
         }
       });
       feed.run();
