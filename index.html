@@ -23,7 +23,7 @@
         resolution: 'standard_resolution',
         template: '<div id="header"><iframe src="{{link}}embed/" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div><div id="footer">{{caption}}</div>',
         filter: function(image) {
-          return ((image.type == 'video') && !is_in_array(image.id,excluded_posts) && !is_in_array(image.user,excluded_users));
+          return ((image.type == 'video') && !is_in_array(image.id,excluded_posts) && !is_in_array(image.user.username,excluded_users));
         }
       });
       feed.run();
