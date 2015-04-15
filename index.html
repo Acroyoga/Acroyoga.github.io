@@ -6,6 +6,7 @@
 
     <script type="text/javascript">
       var excluded_posts = ["892610382732275895_208691355"];
+      var excluded_users = ["acroeddie"];
       
       function is_in_array(s,your_array) {
         for (var i = 0; i < your_array.length; i++) {
@@ -22,7 +23,7 @@
         resolution: 'standard_resolution',
         template: '<div id="header"><iframe src="{{link}}embed/" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div><div id="footer">{{caption}}</div>',
         filter: function(image) {
-          return ((image.type == 'video') && !is_in_array(image.id,excluded_posts));
+          return ((image.type == 'video') && !is_in_array(image.id,excluded_posts) && !is_in_array(image.user,excluded_users));
         }
       });
       feed.run();
