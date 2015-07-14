@@ -1,27 +1,32 @@
 <html>
   <head>
     <title>#AcroyogaTraining</title>
-    <link rel="stylesheet" href="style.css">  
-    <script src="instafeed.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="instafeed.min.js"></script>
+
     <script type="text/javascript">
-    $(document).ready(function() {
-        var userFeed = new Instafeed({
-          get: 'tagged',
-          sortBy: 'most-liked',
-          tagName: 'smileyomvid',
-          clientId: 'c6d78ad853404db1b7e59e917a1316ff',
-          limit: 60,
-          resolution: 'standard_resolution',
-          filter: function(image) {
-            return (image.user.username == 'smileyom');
-          },
-          template: '<div id="header"><video width="100%" controls loop><source src="{{model.videos.standard_resolution.url}}" type="video/mp4"/></video></div><div id="footer"><a href="{{link}}"><span class="EmojiInput mj40" title="Heavy Black Heart ❤"></span> {{likes}} <span class="EmojiInput mj660" title="Speech Balloon "></span> {{comments}}</a><br>{{caption}}</div><br>',
-        });
-        userFeed.run();
-        $('.myButton').on('click', function() {
-          userFeed.next();
-        });
-    });
+      var excluded_posts = ["892610382732275895_208691355"];
+      var excluded_users = ["acroeddie"];
+      
+      function is_in_array(s,your_array) {
+        for (var i = 0; i < your_array.length; i++) {
+          if (your_array[i].toLowerCase() === s.toLowerCase()) return true;
+        }
+        return false;
+      }
+      
+      var feed = new Instafeed({
+        get: 'tagged',
+        tagName: 'acroyogatraining',
+        clientId: '4c0caa35855143e788ca790012daaa3b',
+        limit: 60,
+        resolution: 'standard_resolution',
+        template: '<div id="header"><iframe src="{{link}}embed/" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div><div id="footer">{{caption}}</div>',
+        filter: function(image) {
+          return ((image.type == 'video') && !is_in_array(image.id,excluded_posts) && !is_in_array(image.user.username,excluded_users));
+        }
+      });
+      feed.run();
     </script>
 
     <script>
